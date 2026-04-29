@@ -5,13 +5,13 @@ $pass = getenv('DB_PASS');
 $db   = getenv('DB_NAME');
 
 $conn = mysqli_init();
-mysqli_ssl_set($conn, NULL, NULL, NULL, NULL, NULL);
+mysqli_ssl_set($conn, NULL, NULL, '/etc/ssl/certs/ca-certificates.crt', NULL, NULL);
 mysqli_real_connect(
     $conn,
-    $host ?: 'localhost',
-    $user ?: 'root',
-    $pass ?: '',
-    $db ?: 'farmcare',
+    $host,
+    $user,
+    $pass,
+    $db,
     3306,
     NULL,
     MYSQLI_CLIENT_SSL
